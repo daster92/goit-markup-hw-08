@@ -1,0 +1,188 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &.is-hidden .modal {
+    transform: translate(-50%, -50%) scale(0.2);
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 528px;
+  height: 581px;
+  background-color: var(--primary-bg-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.button-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  background-color: var(--primary-bg-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  @extend %align-list;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover .button-icon {
+    fill: var(--accent-color);
+    transition: fill 250ms linear;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+.modal-form__title {
+  padding-bottom: 12px;
+  @include font(20px, 1.2, 0.03em, 700);
+  color: var(--title-text-color);
+  text-align: center;
+}
+.modal-form {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px;
+}
+.forms__field {
+  position: relative;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.forms__label {
+  position: absolute;
+  padding-bottom: 3px;
+  bottom: 100%;
+  left: 0px;
+  @include font(12px, 1.2, 0.01em, 400);
+  color: rgba(117, 117, 117, 1);
+}
+.forms__policy {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.forms__text {
+  display: flex;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-text-color);
+  &::before {
+    content: "";
+    width: 16px;
+    height: 15px;
+    border: solid 2px #000000;
+    margin-right: 5px;
+    display: block;
+    border-radius: 2px;
+  }
+}
+
+.forms__link {
+  text-decoration-skip-ink: none;
+  color: var(--accent-color);
+  padding-left: 3px;
+}
+.checkbox:checked + .forms__text::before {
+  background-size: contain;
+  background: url(../images/icon-check.svg);
+  background-origin: border-box;
+  border: none;
+}
+
+.forms__icon {
+  position: absolute;
+  margin-left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 5px;
+}
+.forms__svg {
+  position: relative;
+}
+.forms__input {
+  width: 100%;
+  height: 40px;
+  margin: 0;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 42px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 250ms linear;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  &:focus {
+    border-color: var(--accent-color);
+  }
+  &:focus + .forms__icon {
+    fill: var(--accent-color);
+    border-color: var(--accent-color);
+  }
+}
+
+.forms__coment {
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  padding-top: 0;
+  padding: 12px 16px;
+  border-radius: 4px;
+  outline: none;
+  width: 100%;
+  height: 120px;
+  resize: none;
+  &:focus {
+    border-color: var(--accent-color);
+  }
+  &::placeholder {
+    font-size: 14px;
+    line-height: 1.14;
+    letter-spacing: 0.01em;
+    color: rgba(117, 117, 117, 0.5);
+  }
+}
+
+.modal__button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 16px;
+  line-height: 1.9;
+  text-align: center;
+  letter-spacing: 0.06em;
+  width: 200px;
+  height: 50px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  background-color: var(--accent-color);
+  color: var(--primary-bg-color);
+  &:hover,
+  &:focus {
+    background-color: #188ce8;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
