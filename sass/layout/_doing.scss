@@ -1,7 +1,11 @@
 /* Section */
 .doing {
-  padding-top: 0;
-  padding-bottom: 94px;
+  display: none;
+  @media screen and (min-width: 1200px) {
+    display: block;
+    padding-top: 0;
+    padding-bottom: 94px;
+  }
 }
 .doing-list {
   display: flex;
