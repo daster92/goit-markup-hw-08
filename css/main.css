@@ -1665,6 +1665,7 @@ img {
 @media screen and (min-width: 1200px) {
   .adress-other {
     margin-right: 70px;
+    margin-bottom: 0;
   }
 }
 
