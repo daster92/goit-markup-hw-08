@@ -11,6 +11,9 @@
   color: var(--primary-bg-color);
   margin-bottom: 20px;
   justify-content: center;
+  @media screen and (min-width: 1200px) {
+    justify-content: left;
+  }
 }
 .footer-other {
   text-align: center;
@@ -22,6 +25,7 @@
   @media screen and (min-width: 1200px) {
     display: flex;
     align-items: baseline;
+    text-align: left;
   }
 }
 .adress-other {
